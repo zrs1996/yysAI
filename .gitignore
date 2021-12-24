@@ -2,6 +2,6 @@
 /Release
 /x64
 /.vscode
-# /ai.vcxproj
-# /ai.vcxproj.filters
-# /ai.vcxproj.user
+/ai.vcxproj
+/ai.vcxproj.filters
+/ai.vcxproj.user
