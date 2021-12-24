@@ -424,11 +424,11 @@ void clickRandom(int btn[3]) {
     aiAutoClick();
 }
 
-int getBtn(int btn1[5], int btn2[5], int btn[3]) {
+bool getBtn(int btn1[5], int btn2[5], int btn[3]) {
     if (getColor(btn1, btn2)) {
         Sleep(random(500) + 500);
         clickRandom(btn);
-        return 1;
+        return true;
     }
-    return 0;
+    return false;
 }
