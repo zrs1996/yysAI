@@ -120,11 +120,11 @@ void LoopThrowBeans() {
 /* 队员结束战斗 */
 bool endMember(){
     std::cout << "识别队员是否可以结束战斗" << std::endl;
-    int btn1[5] = {};
-    int btn2[5] = {};
-    int btn[3] = {};
-    int failBtn1[5] = {};
-    int failBtn2[5] = {};
-    int failBtn[3] = {};
+    int btn1[5] = { 1267, 469, 247, 229, 37 };
+    int btn2[5] = { 1355, 468, 247, 231, 49};
+    int btn[3] = { 1170, 152, 50 };
+    int failBtn1[5] = { 1389, 362, 248, 247, 244 };
+    int failBtn2[5] = { 1541, 364, 191, 48, 47 };
+    int failBtn[3] = { 1170, 152, 50  };
     return getBtn(btn1, btn2, btn) || getBtn(failBtn1, failBtn2, failBtn);
 }

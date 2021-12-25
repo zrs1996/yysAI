@@ -58,7 +58,7 @@ void Menu() {
         LoopStartDoubleGame();
         break;
     case 3: // 队长个人突破
-        LoopPersonBreakThrough();
+        //LoopPersonBreakThrough();
     case 4: // 队员个人突破
         LoopMemberPersonBreakThrough();
     case 5: //队员组队御魂

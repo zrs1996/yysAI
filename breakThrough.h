@@ -1,5 +1,5 @@
-int member_breakTimes = 1; //é˜Ÿå‘˜ä¸ªäººçªç ´ æŸä¸€è½®çš„ ç¬¬å‡ æ¬¡çªç ´
-
+int member_breakTimes = 1; //¶ÓÔ±¸öÈËÍ»ÆÆ Ä³Ò»ÂÖµÄ µÚ¼¸´ÎÍ»ÆÆ
+bool quitBreakTag = false; //Á¬ÍË¸öÈËÍ»ÆÆ¿ª¹Ø
 void closeBreakThroughInterface()
 {
     int btn1[5] = {1083, 143, 233, 214, 208};
@@ -178,168 +178,6 @@ void LoopStartBreakThrough(int time, bool multiple)
     }
 }
 
-void getCurrentBreak()
-{
-    if (
-        getEndButton(secondLuckyBagEndTop, secondLuckyBagEndRight, leaderScreenInit[0], leaderScreenInit[1]))
-    {
-        randomClick(250, 350, 250);
-        Sleep(2000);
-    }
-}
-
-void startPersonBreakThrough()
-{
-    cout << "startPersonBreakThrough " << gameRunTimes << endl;
-    int top_x, top_y, top_r, top_g, top_b;
-    int bot_x, bot_y, bot_r, bot_g, bot_b;
-    int btn_x, btn_y, btn_ratio = personintobreakBtn[2];
-    int btn1_x, btn1_y, btn1_ratio = personbreakBtn[2];
-    if (gameRunTimes < 4)
-    {
-        top_x = personbreakTop[0] + personbreakratiox * (gameRunTimes - 1);
-        top_y = personbreakTop[1];
-        top_r = personbreakTop[2];
-        top_g = personbreakTop[3];
-        top_b = personbreakTop[4];
-
-        bot_x = personbreakTop[0] + personbreakratiox * (gameRunTimes - 1);
-        bot_y = personbreakTop[1];
-        bot_r = personbreakTop[2];
-        bot_g = personbreakTop[3];
-        bot_b = personbreakTop[4];
-
-        btn1_x = personbreakBtn[0] + personbreakratiox * (gameRunTimes - 1);
-        btn1_y = personbreakBtn[1];
-
-        btn_x = personintobreakBtn[0] + personintobreakration[0] * (gameRunTimes - 1);
-        btn_y = personintobreakBtn[1];
-    }
-    else if (gameRunTimes < 7)
-    {
-        top_x = personbreakTop[0] + personbreakratiox * (gameRunTimes - 4);
-        top_y = personbreakTop[1] + personbreakratioy;
-        top_r = personbreakTop[2];
-        top_g = personbreakTop[3];
-        top_b = personbreakTop[4];
-
-        bot_x = personbreakTop[0] + personbreakratiox * (gameRunTimes - 4);
-        bot_y = personbreakTop[1] + personbreakratioy;
-        bot_r = personbreakTop[2];
-        bot_g = personbreakTop[3];
-        bot_b = personbreakTop[4];
-
-        btn1_x = personbreakBtn[0] + personbreakratiox * (gameRunTimes - 4);
-        btn1_y = personbreakBtn[1] + personbreakratioy;
-
-        btn_x = personintobreakBtn[0] + personintobreakration[0] * (gameRunTimes - 4);
-        btn_y = personintobreakBtn[1] + personintobreakration[1];
-    }
-    else
-    {
-        top_x = personbreakTop[0] + personbreakratiox * (gameRunTimes - 7);
-        top_y = personbreakTop[1] + personbreakratioy * 2;
-        top_r = personbreakTop[2];
-        top_g = personbreakTop[3];
-        top_b = personbreakTop[4];
-
-        bot_x = personbreakTop[0] + personbreakratiox * (gameRunTimes - 7);
-        bot_y = personbreakTop[1] + personbreakratioy * 2;
-        bot_r = personbreakTop[2];
-        bot_g = personbreakTop[3];
-        bot_b = personbreakTop[4];
-
-        btn1_x = personbreakBtn[0] + personbreakratiox * (gameRunTimes - 7);
-        btn1_y = personbreakBtn[1] + personbreakratioy * 2;
-
-        btn_x = personintobreakBtn[0] + personintobreakration[0] * (gameRunTimes - 7);
-        btn_y = personintobreakBtn[1] + personintobreakration[1] * 2;
-    }
-    int top[5] = {top_x, top_y, top_r, top_g, top_b};
-    int bot[5] = {bot_x, bot_y, bot_r, bot_g, bot_b};
-    int alreadyTop[5] = {top_x, top_y, alreadyBreakTop[2], alreadyBreakTop[3], alreadyBreakTop[4]};
-    int alreadyBot[5] = {bot_x, bot_y, alreadyBreakTop[2], alreadyBreakTop[3], alreadyBreakTop[4]};
-
-    cout << top_x << top_y << top_r << top_g << top_b << endl;
-    cout << bot_x << bot_y << bot_r << bot_g << bot_b << endl;
-
-    if (
-        getEndButton(alreadyTop, alreadyBot, leaderScreenInit[0], leaderScreenInit[1]))
-    {
-        gameRunTimes++;
-        return;
-    }
-
-    if (getColor(outBreakL, outBreakR))
-    {
-        outBreakTag = 1;
-    }
-    else
-    {
-        cout << "outtag = 0" << endl;
-        outBreakTag = 0;
-    }
-
-    if (getEndButton(top, bot, leaderScreenInit[0], leaderScreenInit[1]))
-    {
-        randomClick(btn1_x, btn1_y, btn1_ratio);
-        Sleep(1000);
-        randomClick(btn_x, btn_y, btn_ratio);
-        gameRunTimes++;
-        cout << "gameRunTimes" << gameRunTimes << endl;
-        if (outBreakTag)
-        {
-            Sleep(7000);
-            randomClick(outBreakBtn1[0], outBreakBtn1[1], outBreakBtn1[2]);
-            Sleep(2000);
-            randomClick(outBreakBtn2[0], outBreakBtn2[1], outBreakBtn2[2]);
-        }
-    }
-}
-
-void LoopPersonBreakThrough()
-{
-    int breakThroughTimes = 1;
-    gameRunTimes = 1;
-    while (startBreakThroughTimes < 508)
-    {
-        cout << "while" << gameRunTimes << endl;
-        while (gameRunTimes < 5000)
-        {
-            cout << "gameRunTimes === " << gameRunTimes << endl;
-            if (getEndButton(clickOneBreakTop, clickOneBreakBot, leaderScreenInit[0], leaderScreenInit[1]))
-            {
-                randomClick(clickOneBreakBtn[0], clickOneBreakBtn[1], clickOneBreakBtn[2]);
-            }
-            if (gameRunTimes < 10)
-            {
-                openBreakThroughInterface();
-                Sleep(random(1000) + 1000);
-                startPersonBreakThrough();
-                endBreakThrough();
-            }
-            if (gameRunTimes >= 10)
-            {
-                Sleep(5000);
-                endBreakThrough();
-                if (outBreakTag)
-                {
-                    Sleep(5000);
-                    randomClick(outBreakBtn3[0], outBreakBtn3[1], outBreakBtn3[2]);
-                    Sleep(3000);
-                    randomClick(outBreakBtn4[0], outBreakBtn4[1], outBreakBtn4[2]);
-
-                    breakThroughTimes++;
-                    gameRunTimes = 11;
-                    return;
-                }
-                breakThroughTimes++;
-                gameRunTimes = 1;
-            }
-            cout << "outBreakTag" << outBreakTag << endl;
-        }
-    }
-}
 
 void closeBreakThroughInterface_member()
 {
@@ -430,22 +268,30 @@ void LoopStartMemberBreakThrough(int time)
 
 void openBreakThrough_member()
 {
-    std::cout << "æ‰“å¼€ä¸ªäººçªç ´ç•Œé¢" << std::endl;
-    int btn1[5] = {1320, 446, 226, 212, 196};
+    cout << "´ò¿ª¸öÈËÍ»ÆÆ½çÃæ" << endl;
+    int btn1[5] = {1330, 446, 226, 212, 196};
     int btn2[5] = {1345, 471, 144, 118, 97};
     int btn[3] = {1320, 446, 15};
     getBtn(btn1, btn2, btn);
 }
 
+void closeErrorPersonBreak() {
+    int btn1[5] = { 1215, 351, 96, 92, 85 };
+    int btn2[5] = { 1195, 436, 35, 35, 40 };
+    int btn[3] = { 1165, 250, 30 };
+    getBtn(btn1, btn2, btn);
+}
+
 void attackBreakThrough_member()
 {
-    int Btn1[5] = {1299, 173, 218, 205, 189};
+    cout << "¿ªÊ¼Ê¶±ğÊÇ·ñ¿ÉÒÔ½øÈëÕ½¶·" << endl;
+    int Btn1[5] = { 1271, 177, 218, 205, 189};
     int Btn2[5] = {1360, 198, 218, 205, 189};
     int Btn[3] = {1299, 173, 50};
 
-    int startBtn1[5] = { 1351, 293, 243, 178, 94 };
-    int startBtn2[5] = { 1400, 309, 243, 178, 94 };
-    int startBtn[3] = { 1351, 293, 10 };
+    int startBtn1[5] = { 1362, 295, 243, 178, 94};
+    int startBtn2[5] = {1407, 313, 243, 178, 94};
+    int startBtn[3] = {1362, 295, 10};
 
     int xDiff = 188;
     int yDiff = 0;
@@ -455,135 +301,171 @@ void attackBreakThrough_member()
 
     if (member_breakTimes <= 3)
     {
-
     }
     else if (member_breakTimes <= 6)
     {
         yDiff = 77;
         init = 4;
-        startYDiff = 76;
+        startYDiff = 77;
     }
     else
     {
-        yDiff = 77 + 76;
+        yDiff = 77 + 77;
 
-        startYDiff = 76 + 77;
+        startYDiff = 77 + 78;
 
         init = 7;
     }
-    Btn1[1] = Btn1[1] + (xDiff * (member_breakTimes - init));
-    Btn2[1] = Btn2[1] + (xDiff * (member_breakTimes - init));
-    Btn[1] = Btn[1] + (xDiff * (member_breakTimes - init));
+    Btn1[0] = Btn1[0] + (xDiff * (member_breakTimes - init));
+    Btn2[0] = Btn2[0] + (xDiff * (member_breakTimes - init));
+    Btn[0] = Btn[0] + (xDiff * (member_breakTimes - init));
 
-    Btn1[2] = Btn1[2] + yDiff;
-    Btn2[2] = Btn2[2] + yDiff;
-    Btn[2] = Btn[2] + yDiff;
+    Btn1[1] = Btn1[1] + yDiff;
+    Btn2[1] = Btn2[1] + yDiff;
+    Btn[1] = Btn[1] + yDiff;
+
+    if (getBtn(Btn1, Btn2, Btn))
+    {
+        Sleep(1500);
+        cout << "µã»÷¸öÈËÍ»ÆÆ½á½ç" << endl;
+    }
+
+    startBtn1[0] = startBtn1[0] + (xDiff * (member_breakTimes - init));
+    startBtn2[0] = startBtn2[0] + (xDiff * (member_breakTimes - init));
+    startBtn[0] = startBtn[0] + (xDiff * (member_breakTimes - init));
+
+    startBtn1[1] = startBtn1[1] + startYDiff;
+    startBtn2[1] = startBtn2[1] + startYDiff;
+    startBtn[1] = startBtn[1] + startYDiff;
     
+    if (getBtn(startBtn1, startBtn2, startBtn)) {
+        cout << "µã»÷½øÈë¸öÈËÍ»ÆÆÕ½¶·" << endl;
 
-    if (getBtn(Btn1, Btn2, Btn)) {
-        startBtn1[1] = startBtn1[1] + (xDiff * (member_breakTimes - init));
-        startBtn2[1] = startBtn2[1] + (xDiff * (member_breakTimes - init));
-        startBtn[1] = startBtn[1] + (xDiff * (member_breakTimes - init));
-
-        startBtn1[2] = startBtn1[2] + startYDiff;
-        startBtn2[2] = startBtn2[2] + startYDiff;
-        startBtn[2] = startBtn[2] + startYDiff;
-        getBtn(startBtn1, startBtn2, startBtn);
+        Sleep(5000);
+        if (quitBreakTag) {
+            cout << "ÓĞ60¼¶µÄ½á½ç Á¬ÍËµÚ£º" << member_breakTimes << endl;
+            int quitBtn[3] = { 1174, 96, 10 };
+            clickRandom(quitBtn);
+            Sleep(1000);
+            int confimrBtn[3] = { 1559, 318, 20 };
+            clickRandom(confimrBtn);
+        }
+        member_breakTimes++;
+        return;
+    }
+    Btn1[2] = 109;
+    Btn1[3] = 102;
+    Btn1[4] = 94;
+    Btn2[2] = 109;
+    Btn2[3] = 102;
+    Btn2[4] = 94;
+    if (getColor(Btn1, Btn2))
+    {
+        /* ÒÑÌôÕ½¹ıÁË */
+        member_breakTimes++;
+        return;
     }
 }
 
 void startBreakThrough_member()
 {
-    std::cout << "ç‚¹å‡»è¿›å…¥ä¸ªäººçªç ´æˆ˜æ–—" << std::endl;
+    attackBreakThrough_member();
 }
 
 void endBreakThrough_member()
 {
     if (endMember())
     {
-        member_breakTimes++;
+        return;
     }
+    int btn1[5] = { 1559, 318, 243, 178, 94 };
+    int btn2[5] = { 1610, 337, 243, 178, 94 };
+    int btn[5] = { 1559, 318, 20 };
+    getBtn(btn1, btn2, btn);
 }
 
 void refreshBreakThrough_member()
 {
-    std::cout << "åˆ·æ–°ç»“ç•Œ" << std::endl;
-    int btn1[5] = {};
-    int btn2[5] = {};
-    int btn[3] = {};
+    cout << "Ë¢ĞÂ½á½ç" << endl;
+    int btn1[5] = { 1729, 421, 243, 178, 94};
+    int btn2[5] = { 1792, 435, 243, 178, 94 };
+    int btn[3] = { 1729, 421, 20 };
     getBtn(btn1, btn2, btn);
+
+    Sleep(2000);
+
+    int confirmBtn1[5] = { 1565, 324, 243, 178, 94 };
+    int confirmBtn2[5] = { 1621, 336, 243, 178, 94 };
+    int confirmBtn[3] = { 1565, 324, 20 };
+    getBtn(confirmBtn1, confirmBtn2, confirmBtn);
 }
 
 void endLuckyBag_member()
 {
-    std::cout << "è¯†åˆ«æ˜¯å¦å¯ä»¥ç‚¹å‡»ç¦è¢‹" << std::endl;
-    int btn1[5] = {};
-    int btn2[5] = {};
-    int btn[3] = {};
+    cout << "Ê¶±ğÊÇ·ñ¿ÉÒÔµã»÷¸£´ü" << endl;
+    int btn1[5] = { 1438, 435, 61, 133, 202 };
+    int btn2[5] = { 1441, 441, 60, 131, 202 };
+    int btn[3] = { 1170, 152, 50 };
     getBtn(btn1, btn2, btn);
 }
 
 void noTimes_member()
 {
-    std::cout << "è¯†åˆ«æ˜¯å¦æ²¡æœ‰çªç ´ç¥¨äº†" << std::endl;
+    cout << "Ê¶±ğÊÇ·ñÃ»ÓĞÍ»ÆÆÆ±ÁË" << endl;
     int btn1[5] = {};
     int btn2[5] = {};
     int btn[3] = {};
     getBtn(btn1, btn2, btn);
 }
 
-bool quitBreakThroughtNine_member()
-{
-    int quitBreakThroughTimes = 1;
-    std::cout << "ç¬¬" << quitBreakThroughTimes << "æ¬¡é€€å‡ºä¸ªäººçªç ´æˆ˜æ–—" << std::endl;
-
-    return false;
-}
-
 void getIs60Level()
 {
-    std::cout << "è¯†åˆ«æ˜¯å¦ æœ‰60çº§çš„ç»“ç•Œ" << std::endl;
-    int btn1[5] = {};
-    int btn2[5] = {};
-    int btn[3] = {};
-    if (getBtn(btn1, btn2, btn))
+    cout << "Ê¶±ğÊÇ·ñ ÓĞ60¼¶µÄ½á½ç" << endl;
+    int btn1[5] = { 1256, 188, 219, 213, 195 };
+    int btn2[5] = { 1265, 191, 228, 222, 204 };
+    if (getColor(btn1, btn2))
     {
-        std::cout << "æœ‰60çº§çš„ç»“ç•Œ å¼€å§‹è¿›å…¥ è¿é€€9æ¬¡ç¯èŠ‚" << std::endl;
-        if (quitBreakThroughtNine_member)
-        {
-            std::cout << "è¿é€€9æ¬¡ å¼€å§‹åˆ·æ–°" << std::endl;
-            refreshBreakThrough_member();
-        }
+        quitBreakTag = true;
+        cout << "ÓĞ60¼¶µÄ½á½ç ¿ªÊ¼½øÈë Á¬ÍË9´Î»·½Ú" << endl;
     }
 }
 
-/* é˜Ÿå‘˜--ä¸ªäººçªç ´ */
-void LoopMemberPersonBreakThrough(int time)
+/* ¶ÓÔ±--¸öÈËÍ»ÆÆ */
+void LoopMemberPersonBreakThrough()
 {
     int member_gameRunTimes = 1;
-    /* å¾ªç¯å¼€å§‹ä¸ªäººçªç ´ */
+    /* Ñ­»·¿ªÊ¼¸öÈËÍ»ÆÆ */
     while (startBreakThroughTimes < 500)
     {
-        std::cout << "å¾ªç¯å¼€å§‹ä¸ªäººçªç ´ è½®æ¬¡ï¼š " << member_gameRunTimes << std::endl;
+        cout << "Ñ­»·¿ªÊ¼¸öÈËÍ»ÆÆ µÚ:" << member_gameRunTimes << endl;
         member_breakTimes = 1;
 
         while (member_breakTimes <= 9)
         {
-            /* æ‰“å¼€ç•Œé¢ */
+            cout << "¸öÈËÍ»ÆÆ µÚ:" << member_breakTimes << endl;
+            /* ´ò¿ª½çÃæ */
             openBreakThrough_member();
-            /* å¼€å§‹æŒ‘æˆ˜ */
+
+            /* ¹Ø±Õ´íÎó½á½ç */
+            closeErrorPersonBreak();
+
+            /* Ê¶±ğÊÇ·ñ ÓĞ60¼¶µÄ½á½ç */
+            getIs60Level();
+
+            /* ¿ªÊ¼ÌôÕ½ */
             startBreakThrough_member();
-            /* ç»“æŸæŒ‘æˆ˜ */
+            /* ½áÊøÌôÕ½ */
             endBreakThrough_member();
-            /* ç‚¹å‡»ç¦è¢‹ */
+            /* µã»÷¸£´ü */
             endLuckyBag_member();
-            /* è¯†åˆ«æ˜¯å¦æ²¡æœ‰çªç ´ç¥¨äº† */
+            /* Ê¶±ğÊÇ·ñÃ»ÓĞÍ»ÆÆÆ±ÁË */
             noTimes_member();
+            Sleep(2000);
         }
-        if (member_breakTimes > 9)
-        {
-            std::cout << "å·²æŒ‘æˆ˜9æ¬¡" << std::endl;
+        if (member_breakTimes > 9) {
+            //cout << "ÒÑÌôÕ½9´Î" << endl;
             refreshBreakThrough_member();
+            quitBreakTag = false;
             member_breakTimes = 0;
             member_gameRunTimes++;
         }
