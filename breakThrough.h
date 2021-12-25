@@ -232,7 +232,6 @@ void startAttack_memebr()
 
 void end_break_member()
 {
-    closeCooperationButton(memberScreenInit[0], memberScreenInit[1]);
     if (getColor(end_break_member1, end_break_member2))
     {
         randomClick(end_break_member_btn[0], end_break_member_btn[1], end_break_member_btn[2]);

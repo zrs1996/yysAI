@@ -1,5 +1,3 @@
-//#include "breakThrough.h"
-
 int _gameRunTimes = 0;
 
 /* ³¬¹íÍõËÑË÷*/
@@ -69,7 +67,6 @@ void check_five_CGW() {
 void LoopStartCGW() {
     do 
     {
-        closeCooperationButton(leaderScreenInit[0], leaderScreenInit[1]);
         Sleep(random(500) + 1500);
         cout << "³¬¹íÍõËÑË÷" << endl;
         search_CGW();
@@ -114,7 +111,6 @@ void LoopStartCGW() {
 //void LoopStartCGW2() {
 //    do
 //    {
-//        closeCooperationButton(leaderScreenInit[0], leaderScreenInit[1]);
 //        Sleep(random(500) + 1500);
 //        cout << "³¬¹íÍõËÑË÷" << endl;
 //        search_CGW();

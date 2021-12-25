@@ -22,16 +22,6 @@ void test() {
     cout << max << "max" << endl;
 }
 
-void LoopStartEquipGameAsMember() {
-    while (gameRunTimes <= 450)
-    {
-        Sleep(random(500) + 500);
-        SingleYuHunEndGame();
-        Sleep(random(500) + 500);
-    }
-}
-
-
 
 void showMenu() {
     cout << "1  单人御魂" << endl;
@@ -52,7 +42,7 @@ void Menu() {
     switch (select)
     {
     case 1: //单人御魂
-        LoopStartGame();
+        // LoopStartGame();
         break;
     case 2: //组队御魂
         LoopStartDoubleGame();
@@ -62,13 +52,12 @@ void Menu() {
     case 4: // 队员个人突破
         LoopMemberPersonBreakThrough();
     case 5: //队员组队御魂
-        LoopStartEquipGameAsMember();
+        // LoopStartEquipGameAsMember();
         break;
     case 6: //
         // LoopStartActivityGame();
         break;
     case 7: //
-        LoopStartSpritGame();
         break;
     case 9: //队长寮突
         LoopStartBreakThrough(1000000, false);
