@@ -42,8 +42,8 @@ int teamEndBtn2[5] = { 1354, 469, 247, 229, 39 };
 int teamEndBtn[3] = { 1176, 173, 30 };
 
 /* 队员的结算界面识别 */
-int memberEndBtn1[5] = { 173, 622, 251, 245, 49 };
-int memberEndBtn2[5] = { 309, 624, 247, 231, 49 };
+int memberEndBtn1[5] = { 177, 632, 247, 229, 40 };
+int memberEndBtn2[5] = { 314, 632, 247, 229, 39 };
 int memberEndBtn[3] = { 51, 203, 30 };
 
 void teamInviteMember() {

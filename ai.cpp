@@ -28,8 +28,8 @@ void showMenu() {
     cout << "2  组队御魂" << endl;
     cout << "3 队长--个人突破" << endl;
     cout << "4 队员--个人突破" << endl;
-    cout << "6 " << endl;
-    cout << "7 " << endl;
+    cout << "6 活动 - 祈福之行" << endl;
+    cout << "7 合卡 抽白票" << endl;
     cout << "8  组队御魂 作为队员" << endl;
     cout << "9 队长寮突" << endl;
     cout << "91  队长 + 队员寮突" << endl;
@@ -55,9 +55,10 @@ void Menu() {
         // LoopStartEquipGameAsMember();
         break;
     case 6: //
-        // LoopStartActivityGame();
+         loopQiFu();
         break;
     case 7: //
+        synthesisCard();
         break;
     case 9: //队长寮突
         LoopStartBreakThrough(1000000, false);
@@ -65,8 +66,8 @@ void Menu() {
     case 91: // 队长 + 队员寮突
         LoopStartBreakThrough(1000000, true);
         break;
-    case 11:
-        synthesisCard();
+    case 10:
+        LoopPve();
         break;
     case 12: //
         LoopThrowBeans();

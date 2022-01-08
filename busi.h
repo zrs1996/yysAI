@@ -16,12 +16,18 @@ void endPve(int btn1[5], int btn2[5], int btn[3]) {
 void synthesisCard() {
     int times = 0;
     while (times <= 500){
+        Sleep(1000);
+
         if (getColor(synthesisTop, synthesisRight)) {
             Sleep(500);
             randomClick(690, 542, 50);
             Sleep(500);
             randomClick(920, 554, 40);
         }
+        int btn1[5] = { 645, 597, 243, 178, 94 };
+        int btn2[5] = { 767, 624, 243, 178, 94 };
+        int btn[3] = { 645, 597, 10 };
+        getBtn(btn1, btn2, btn);
     }
 }
 
@@ -124,9 +130,14 @@ bool endMember(){
     int btn2[5] = { 1355, 468, 247, 231, 49};
     int btn[3] = { 1170, 152, 50 };
     int failBtn1[5] = { 1389, 362, 248, 247, 244 };
-    int failBtn2[5] = { 1541, 364, 191, 48, 47 };
+    int failBtn2[5] = { 1443, 151, 81, 74, 91 };
     int failBtn[3] = { 1170, 152, 50  };
-    return getBtn(btn1, btn2, btn) || getBtn(failBtn1, failBtn2, failBtn);
+
+    int noBtn1[5] = { 1353, 214, 232, 217, 152 };
+    int noBtn2[5] = { 1319, 205, 222, 181, 76 };
+    int noBtn[3] = { 1170, 152, 50 };
+
+    return getBtn(btn1, btn2, btn) || getBtn(failBtn1, failBtn2, failBtn) || getBtn(noBtn1, noBtn2, noBtn);
 }
 
 bool endTeam() {

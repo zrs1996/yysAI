@@ -126,3 +126,39 @@ void LoopStartCGW() {
 //        chcke_member_break();
 //    } while (gameRunTimes <= 999);
 //}
+
+
+/* Æí¸£Ö®ÐÐ µ¥Ë¢ */
+void loopQiFu() {
+    while (gameRunTimes < 90)
+    {
+        Sleep(1000);
+        int btn1[5] = { 473, 187, 39, 23, 23};
+        int btn2[5] = { 525, 215, 40, 25, 25 };
+        int btn[3] = { 473, 187, 10 };
+        if (getBtn(btn1, btn2, btn)) {
+            Sleep(60000);
+            gameRunTimes++;
+        }
+
+  /*      int failBtn1[5] = {};
+        int failBtn2[5] = {};
+        int failBtn[3] = {};
+        getBtn(failBtn1, failBtn2, failBtn);*/
+    }
+}
+
+void LoopPve() {
+    while (gameRunTimes < 100)
+    {
+        Sleep(1000);
+        int btn1[5] = { 1783, 394, 2, 4, 5 };
+        int btn2[5] = { 1817, 420, 29, 9, 10 };
+        int btn[3] = { 1795, 406, 10 };
+        if (getBtn(btn1, btn2, btn)) {
+            Sleep(15000);
+            gameRunTimes++;
+        }
+        endMember();
+    }
+}

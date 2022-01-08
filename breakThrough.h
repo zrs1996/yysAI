@@ -275,16 +275,37 @@ void openBreakThrough_member()
 }
 
 void closeErrorPersonBreak() {
+    cout << "关闭错误结界" << endl;
     int btn1[5] = { 1215, 351, 96, 92, 85 };
     int btn2[5] = { 1195, 436, 35, 35, 40 };
     int btn[3] = { 1165, 250, 30 };
-    getBtn(btn1, btn2, btn);
+
+    int btn_up1[5] = { 1171, 236, 18, 12, 12 };
+    int btn_up2[5] = { 1212, 306, 20, 13, 12 };
+    int btn_up[3] = { 1171, 236, 20 };
+
+    int btn_info1[5] = { 1171, 236, 31, 20, 20 };
+    int btn_info2[5] = { 1212, 306, 34, 22, 20 };
+    int btn_info[3] = { 1171, 236, 20 };
+
+    if (getBtn(btn1, btn2, btn) || getBtn(btn_up1, btn_up2, btn_up) || getBtn(btn_info1, btn_info2, btn_info)) {
+        cout << "已关闭错误结界" << endl;
+    };
 }
 
 void attackBreakThrough_member()
 {
+    /*  
+    1245, 170  1437, 170  1629, 170
+    1245, 248  1437, 248  1629, 248
+    1245, 326  1437, 326  1629, 326
+
+    192 78
+    
+    */
     cout << "开始识别是否可以进入战斗" << endl;
-    int Btn1[5] = { 1271, 177, 218, 205, 189};
+    int Btn1[5] = { 1302, 176, 218, 205, 189};
+    int Btn1_copy[5] = { 1302, 176, 218, 203, 188 };
     int Btn2[5] = {1360, 198, 218, 205, 189};
     int Btn[3] = {1299, 173, 50};
 
@@ -303,27 +324,29 @@ void attackBreakThrough_member()
     }
     else if (member_breakTimes <= 6)
     {
-        yDiff = 77;
+        yDiff = 78;
         init = 4;
-        startYDiff = 77;
+        startYDiff = 78;
     }
     else
     {
-        yDiff = 77 + 77;
+        yDiff = 78 + 78;
 
-        startYDiff = 77 + 78;
+        startYDiff = 78 + 78;
 
         init = 7;
     }
     Btn1[0] = Btn1[0] + (xDiff * (member_breakTimes - init));
+    Btn1_copy[0] = Btn1_copy[0] + (xDiff * (member_breakTimes - init));
     Btn2[0] = Btn2[0] + (xDiff * (member_breakTimes - init));
     Btn[0] = Btn[0] + (xDiff * (member_breakTimes - init));
 
     Btn1[1] = Btn1[1] + yDiff;
+    Btn1_copy[1] = Btn1_copy[1] + yDiff;
     Btn2[1] = Btn2[1] + yDiff;
     Btn[1] = Btn[1] + yDiff;
 
-    if (getBtn(Btn1, Btn2, Btn))
+    if (getBtn(Btn1, Btn2, Btn) || getBtn(Btn1_copy, Btn2, Btn))
     {
         Sleep(1500);
         cout << "点击个人突破结界" << endl;
@@ -417,7 +440,7 @@ void noTimes_member()
     getBtn(btn1, btn2, btn);
 }
 
-void getIs60Level()
+bool getIs60Level()
 {
     cout << "识别是否 有60级的结界" << endl;
     int btn1[5] = { 1256, 188, 219, 213, 195 };
@@ -426,7 +449,9 @@ void getIs60Level()
     {
         quitBreakTag = true;
         cout << "有60级的结界 开始进入 连退9次环节" << endl;
+        return true;
     }
+    return false;
 }
 
 /* 队员--个人突破 */
@@ -439,6 +464,11 @@ void LoopMemberPersonBreakThrough()
         cout << "循环开始个人突破 第:" << member_gameRunTimes << endl;
         member_breakTimes = 1;
 
+        /* 识别是否 有60级的结界 */
+        if (getIs60Level()) {
+            member_breakTimes = 0;
+        }
+
         while (member_breakTimes <= 9)
         {
             cout << "个人突破 第:" << member_breakTimes << endl;
@@ -448,9 +478,7 @@ void LoopMemberPersonBreakThrough()
             /* 关闭错误结界 */
             closeErrorPersonBreak();
 
-            /* 识别是否 有60级的结界 */
-            getIs60Level();
-
+    
             /* 开始挑战 */
             startBreakThrough_member();
             /* 结束挑战 */
@@ -461,13 +489,11 @@ void LoopMemberPersonBreakThrough()
             noTimes_member();
             Sleep(2000);
         }
-        if (member_breakTimes > 9) {
-            //cout << "已挑战9次" << endl;
-            refreshBreakThrough_member();
-            quitBreakTag = false;
-            member_breakTimes = 0;
-            member_gameRunTimes++;
-        }
+        Sleep(5000);
+        refreshBreakThrough_member();
+        quitBreakTag = false;
+        member_breakTimes = 0;
+        member_gameRunTimes++;
     }
 }
 
