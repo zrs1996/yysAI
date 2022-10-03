@@ -108,3 +108,26 @@ void LoopStartHC9() {
 		endTeam(); //执行结束战斗的逻辑
 	} while (gameRunTimes <= 60);
 }
+
+void LoopStartGame() {
+	while (gameRunTimes <= 500)
+	{
+		int btn1[5] = { 1808, 438, 217, 206, 184 };
+		int btn2[5] = { 1838, 463, 222, 211, 188 };
+		int btn[3] = { 1803, 438, 10 };
+		if (getBtn(btn1, btn2, btn)) {
+			Sleep(random(3000) + 55000);
+		}
+
+
+		int singleYuhunBtn1[5] = { 1802, 443, 226, 216, 193 };
+		int singleYuhunBtn2[5] = { 1846, 454, 227, 215, 194 };
+		int singleYuhunBtn[3] = { 1811, 437, 10 };
+		if (getBtn(singleYuhunBtn1, singleYuhunBtn2, singleYuhunBtn)) {
+			Sleep(random(3000) + 5000);
+		}
+
+		endMember();
+		Sleep(random(1000) + 1000);
+	}
+}

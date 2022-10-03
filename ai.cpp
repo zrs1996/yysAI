@@ -15,11 +15,14 @@ void setMemberWindow() {
 }
 
 void test() {
-    int max = 0;
-    int a = 2; int b = 1; int c = -1;
-    a > b ? max = a : max = b;
-    if (max < c) max = c;
-    cout << max << "max" << endl;
+    while (true)
+    {
+        Sleep(1000);
+        int startBtn1[5] = { 1362, 295, 243, 178, 94 };
+        int startBtn2[5] = { 1407, 313, 243, 178, 94 };
+        int startBtn[3] = { 1362, 295, 10 };
+        getBtn(startBtn1, startBtn2, startBtn);
+    }
 }
 
 
@@ -42,7 +45,7 @@ void Menu() {
     switch (select)
     {
     case 1: //单人御魂
-        // LoopStartGame();
+         LoopStartGame();
         break;
     case 2: //组队御魂
         LoopStartDoubleGame();
@@ -63,10 +66,15 @@ void Menu() {
     case 9: //队长寮突
         LoopStartBreakThrough(1000000, false);
         break;
+    case 10: //队长寮突
+        LoopStartBreakThrough(0, false);
+        break;
     case 91: // 队长 + 队员寮突
         LoopStartBreakThrough(1000000, true);
         break;
-    case 10:
+    case 92: //6小时候开始突破
+        LoopStartBreakThrough(21600000, false);
+    case 11:
         LoopPve();
         break;
     case 12: //

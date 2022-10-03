@@ -2,10 +2,11 @@ int member_breakTimes = 1; //队员个人突破 某一轮的 第几次突破
 bool quitBreakTag = false; //连退个人突破开关
 void closeBreakThroughInterface()
 {
-    int btn1[5] = {1083, 143, 233, 214, 208};
-    int btn2[5] = {1094, 165, 116, 53, 66};
-    int btn[5] = {1083, 143, 8};
+    int btn1[5] = { 1088, 127, 89, 45, 45 };
+    int btn2[5] = { 1092, 168, 113, 50, 62 };
+    int btn[5] = { 1079, 139, 8 };
     getBtn(btn1, btn2, btn);
+    cout << "closeBreakThroughInterface: " << getBtn(btn1, btn2, btn) << endl;
 }
 
 void openBreakThroughInterface()
@@ -13,7 +14,17 @@ void openBreakThroughInterface()
     int btn1[5] = {262, 607, 227, 213, 199};
     int btn2[5] = {306, 643, 143, 117, 95};
     int btn[5] = {262, 607, 15};
-    getBtn(btn1, btn2, btn);
+    if (!getBtn(btn1, btn2, btn)) {
+        int btn11[5] = { 262, 607, 230, 215, 200 };
+        int btn12[5] = { 308, 628, 209, 193, 175 };
+        int btn13[5] = { 262, 607, 15 };
+        if (!getBtn(btn11, btn12, btn13)) {
+            int btn01[5] = { 238, 607, 231, 218, 205 };
+            int btn21[5] = { 276, 640, 234, 215, 200 };
+            int btn31[3] = { 262, 607, 15 };
+            getBtn(btn01, btn21, btn31);
+        }
+    }
 }
 
 void openCommonBreakThroughInterface()
@@ -21,7 +32,19 @@ void openCommonBreakThroughInterface()
     int btn1[5] = {1095, 366, 100, 64, 42};
     int btn2[5] = {1130, 410, 86, 54, 35};
     int btn[5] = {1095, 366, 20};
-    getBtn(btn1, btn2, btn);
+    if (getBtn(btn1, btn2, btn)) {
+        Sleep(2000);
+        // 147, 152, 67, 56, 50
+        // 503, 114, 91, 67, 49
+        // 599, 205, 109, 102, 94
+        /*int btn11[5] = { 623, 183, 207, 191, 172 };
+        int btn21[5] = { 155, 493, 71, 63, 55 };
+        int btn31[5] = { 155, 493, 10 };
+        if (getBtn(btn11, btn21, btn31)) {
+            startBreakThroughTimes = 101;
+            gameRunTimes = 7;
+        }*/
+    }
 }
 
 void startBreakThrough()
@@ -49,13 +72,23 @@ void endBreakThrough()
 {
     int sucBtn1[5] = {175, 630, 247, 231, 55};
     int sucBtn2[5] = {314, 631, 247, 231, 49};
-    int sucBtn[5] = {24, 155, 50};
+    int sucBtn[3] = {24, 155, 50};
     getBtn(sucBtn1, sucBtn2, sucBtn);
 
     int failBtn1[5] = {367, 465, 246, 246, 243};
     int failBtn2[5] = {785, 494, 248, 212, 188};
-    int failBtn[5] = {24, 155, 50};
+    int failBtn[3] = {24, 155, 50};
     getBtn(failBtn1, failBtn2, failBtn);
+
+    int failBtne1[5] = { 561, 481, 48, 42, 40 };
+    int failBtne2[5] = { 785, 491, 224, 209, 199 };
+    int failBtne[3] = { 24, 155, 50 };
+    getBtn(failBtne1, failBtne2, failBtne);
+
+    int failBtnr1[5] = { 427, 168, 81, 73, 90 };
+    int failBtnr2[5] = { 467, 205, 99, 90, 111 };
+    int failBtnr[3] = { 24, 155, 50 };
+    getBtn(failBtnr1, failBtnr2, failBtnr);
 }
 
 int slectYYLTag = 0;
@@ -93,10 +126,22 @@ void closeConnect()
 
 void closeErrorBreak()
 {
+
+    int finalStartBtn1[5] = { 556, 355, 243, 178, 94 };
+    int finalStartBtn2[5] = { 630, 381, 243, 178, 94 };
+    int finalStartBtn[5] = { 150, 150, 10 };
+    if (getBtn(finalStartBtn1, finalStartBtn2, finalStartBtn)) {
+        Sleep(1000);
+    }
+
+    
+
     int btn1[5] = {315, 148, 62, 52, 46};
     int btn2[5] = {377, 209, 74, 69, 65};
     int btn[5] = {375, 167, 20};
-    getBtn(btn1, btn2, btn);
+    if (getBtn(btn1, btn2, btn)) {
+        Sleep(1000);
+    }
 
     int cdBtn1[5] = {555, 361, 176, 169, 161};
     int cdBtn2[5] = {641, 380, 176, 169, 161};
@@ -115,30 +160,43 @@ void teamBreakThrough(int time)
     int closeConnectBtn2[5] = {720, 152, 232, 212, 207};
     int closeConnectBtn[5] = {702, 136, 10};
 
+    
+
     while (gameRunTimes < 6)
     {
-        getBtn(closeConnectBtn1, closeConnectBtn2, closeConnectBtn);
-        Sleep(random(500) + 500);
-        closeErrorBreak();
-        Sleep(random(500) + 500);
         closeBreakThroughInterface();
+        cout << "closeBreakThroughInterface----" << endl;
         Sleep(random(500) + 500);
         openBreakThroughInterface();
+        cout << "openBreakThroughInterface----" << endl;
         Sleep(random(500) + 500);
         openCommonBreakThroughInterface();
+        cout << "openCommonBreakThroughInterface----" << endl;
         Sleep(random(500) + 2000);
+        getBtn(closeConnectBtn1, closeConnectBtn2, closeConnectBtn);
+        cout << "closeConnectBtn1----" << endl;
+        Sleep(random(500) + 500);
+        closeErrorBreak();
+        cout << "closeErrorBreak----" << endl;
+        Sleep(random(500) + 500);
         startBreakThrough();
+        cout << "startBreakThrough----" << endl;
         Sleep(random(500) + 500);
         startBreakThrough2();
+        cout << "startBreakThrough2----" << endl;
         Sleep(random(500) + 500);
         endBreakThrough();
+        cout << "endBreakThrough----" << endl;
         Sleep(random(500) + 500);
         /*selectYYL();
         if (slectYYLTag == 1) {
             clickSelectYYL();
         }*/
     }
-    Sleep(random(60000) + time);
+    if (time != 0) {
+        cout << "打完六次了 等待冷却" << endl;
+        Sleep(time + random(20000));
+    }
 }
 
 void memberBreakThrough(int time)
@@ -168,12 +226,17 @@ void memberBreakThrough(int time)
 
 void LoopStartBreakThrough(int time, bool multiple)
 {
-    while (startBreakThroughTimes < 500)
+    while (startBreakThroughTimes < 1999900)
     {
-        teamBreakThrough(time);
-        if (multiple)
-        {
-            memberBreakThrough(time);
+        if (time == 0) {
+            teamBreakThrough(0);
+        }
+        else {
+            teamBreakThrough(time);
+            if (multiple)
+            {
+                memberBreakThrough(time);
+            }
         }
     }
 }
@@ -271,7 +334,13 @@ void openBreakThrough_member()
     int btn1[5] = {1330, 446, 226, 212, 196};
     int btn2[5] = {1345, 471, 144, 118, 97};
     int btn[3] = {1320, 446, 15};
-    getBtn(btn1, btn2, btn);
+    if (!getBtn(btn1, btn2, btn)) {
+        int btn11[5] = { 238, 607, 231, 218, 205 };
+        int btn21[5] = { 276, 640, 234, 215, 200 };
+        int btn31[3] = { 1320, 446, 15 };
+        getBtn(btn11, btn21, btn31);
+    }
+
 }
 
 void closeErrorPersonBreak() {
@@ -311,7 +380,7 @@ void attackBreakThrough_member()
 
     int startBtn1[5] = { 1362, 295, 243, 178, 94};
     int startBtn2[5] = {1407, 313, 243, 178, 94};
-    int startBtn[3] = {1362, 295, 10};
+    int startBtn[3] = { 1363, 300, 5 };
 
     int xDiff = 188;
     int yDiff = 0;
@@ -359,11 +428,10 @@ void attackBreakThrough_member()
     startBtn1[1] = startBtn1[1] + startYDiff;
     startBtn2[1] = startBtn2[1] + startYDiff;
     startBtn[1] = startBtn[1] + startYDiff;
-    
     if (getBtn(startBtn1, startBtn2, startBtn)) {
         cout << "点击进入个人突破战斗" << endl;
 
-        Sleep(5000);
+        Sleep(10000);
         if (quitBreakTag) {
             cout << "有60级的结界 连退第：" << member_breakTimes << endl;
             int quitBtn[3] = { 1174, 96, 10 };
@@ -383,15 +451,10 @@ void attackBreakThrough_member()
     Btn2[4] = 94;
     if (getColor(Btn1, Btn2))
     {
-        /* 已挑战过了 */
+        cout << "已挑战过了" << endl;
         member_breakTimes++;
         return;
     }
-}
-
-void startBreakThrough_member()
-{
-    attackBreakThrough_member();
 }
 
 void endBreakThrough_member()
@@ -428,7 +491,12 @@ void endLuckyBag_member()
     int btn1[5] = { 1438, 435, 61, 133, 202 };
     int btn2[5] = { 1441, 441, 60, 131, 202 };
     int btn[3] = { 1170, 152, 50 };
-    getBtn(btn1, btn2, btn);
+    if (!getBtn(btn1, btn2, btn)) {
+        int btn11[5] = { 1234, 242, 81, 75, 70 };
+        int btn21[5] = { 1249, 421, 100, 94, 87 };
+        int btn31[3] = { 1170, 152, 50 };
+        getBtn(btn11, btn21, btn31);
+    }
 }
 
 void noTimes_member()
@@ -454,6 +522,16 @@ bool getIs60Level()
     return false;
 }
 
+
+void alreadySucBreak() {
+    int btn1[5] = { 149, 161, 71, 63, 57 };
+    int btn2[5] = { 270, 349, 71, 63, 55 };
+    if (getColor(btn1, btn2)) {
+        cout << "等待8小时重选寮突" << endl;
+        Sleep(28800000);
+    }
+}
+
 /* 队员--个人突破 */
 void LoopMemberPersonBreakThrough()
 {
@@ -461,38 +539,45 @@ void LoopMemberPersonBreakThrough()
     /* 循环开始个人突破 */
     while (startBreakThroughTimes < 500)
     {
-        cout << "循环开始个人突破 第:" << member_gameRunTimes << endl;
-        member_breakTimes = 1;
-
-        /* 识别是否 有60级的结界 */
-        if (getIs60Level()) {
-            member_breakTimes = 0;
-        }
-
+        cout << "循环开始个人突破 第:" << member_gameRunTimes << "轮" << endl;
+        //member_breakTimes = 6;
         while (member_breakTimes <= 9)
         {
-            cout << "个人突破 第:" << member_breakTimes << endl;
+            cout << "个人突破 第:" << member_breakTimes << "次" << endl;
             /* 打开界面 */
             openBreakThrough_member();
 
             /* 关闭错误结界 */
             closeErrorPersonBreak();
 
-    
+            /* 识别是否 有60级的结界 */
+            getIs60Level();
+
             /* 开始挑战 */
-            startBreakThrough_member();
+            attackBreakThrough_member();
             /* 结束挑战 */
             endBreakThrough_member();
             /* 点击福袋 */
             endLuckyBag_member();
             /* 识别是否没有突破票了 */
-            noTimes_member();
+            //noTimes_member();
             Sleep(2000);
+
+            alreadySucBreak();
         }
+
         Sleep(5000);
-        refreshBreakThrough_member();
+        /* 结束挑战 */
+        endBreakThrough_member();
+        Sleep(5000);
+
+        /* 点击福袋 */
+        endLuckyBag_member();
+
+        Sleep(10000);
         quitBreakTag = false;
-        member_breakTimes = 0;
+        refreshBreakThrough_member();
+        member_breakTimes = 1;
         member_gameRunTimes++;
     }
 }
@@ -501,3 +586,14 @@ int btn1[5] = {};
 int btn2[5] = {};
 int btn[3] = {};
 // getBtn(btn1, btn2, btn);
+
+
+/*
+道馆
+*/
+
+//道馆邀请 图标
+int dgBtn1[5] = { 113, 248, 134, 110, 90 };
+int dgBtn2[5] = { 150, 277, 134, 110, 90 };
+int dgBtn[3] = { 113, 248, 10 };
+int dgBtn3[5] = { 220, 280, 105, 131, 171 };

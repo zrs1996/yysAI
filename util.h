@@ -61,7 +61,7 @@ bool getScreenColor(int x, int y, int r, int g, int b)
         int red = GetRValue(pixel);
         int green = GetGValue(pixel);
         int blue = GetBValue(pixel);
-        cout << "获取指定位置屏幕颜色" << red << "--" << green << "--" << blue << endl;
+        //cout << "获取指定位置屏幕颜色" << red << "--" << green << "--" << blue << endl;
         if (red == r && green == g && blue == b) {
             return 1;
         }
