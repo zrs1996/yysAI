@@ -89,6 +89,7 @@ void endBreakThrough()
     int failBtnr2[5] = { 467, 205, 99, 90, 111 };
     int failBtnr[3] = { 24, 155, 50 };
     getBtn(failBtnr1, failBtnr2, failBtnr);
+    Sleep(3000);
 }
 
 int slectYYLTag = 0;
@@ -164,6 +165,10 @@ void teamBreakThrough(int time)
 
     while (gameRunTimes < 6)
     {
+        closeErrorBreak();
+        cout << "closeErrorBreak----" << endl;
+        Sleep(random(500) + 1000);
+
         closeBreakThroughInterface();
         cout << "closeBreakThroughInterface----" << endl;
         Sleep(random(500) + 500);
@@ -172,12 +177,9 @@ void teamBreakThrough(int time)
         Sleep(random(500) + 500);
         openCommonBreakThroughInterface();
         cout << "openCommonBreakThroughInterface----" << endl;
-        Sleep(random(500) + 2000);
+        Sleep(random(500) + 1000);
         getBtn(closeConnectBtn1, closeConnectBtn2, closeConnectBtn);
         cout << "closeConnectBtn1----" << endl;
-        Sleep(random(500) + 500);
-        closeErrorBreak();
-        cout << "closeErrorBreak----" << endl;
         Sleep(random(500) + 500);
         startBreakThrough();
         cout << "startBreakThrough----" << endl;
