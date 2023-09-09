@@ -72,10 +72,10 @@ void closeErrorInterface() {
 	int errorInterfaceBtn[3] = { 1600, 149, 12 };
 	getBtn(errorInterfaceBtn1, errorInterfaceBtn2, errorInterfaceBtn);
 
-	int errorTeamInterfaceBtn1[5] = { 705, 139, 232, 212, 207 };
-	int errorTeamInterfaceBtn2[5] = { 720, 152, 232, 212, 207 };
-	int errorTeamInterfaceBtn[3] = { 699, 135, 12 };
-	getBtn(errorTeamInterfaceBtn1, errorTeamInterfaceBtn2, errorTeamInterfaceBtn);
+	int errorTeamInterfaceBtn1[5] = { 705, 139, 232, 212, 207 }; //这个是像素1 { r, g, b, x, y }
+	int errorTeamInterfaceBtn2[5] = { 720, 152, 232, 212, 207 }; //这个是像素2 { r, g, b, x, y }
+	int errorTeamInterfaceBtn[3] = { 699, 135, 12 }; // 这个是点击的按钮坐标  x,y,random 实际点击区域为(x+random,y+random)
+	getBtn(errorTeamInterfaceBtn1, errorTeamInterfaceBtn2, errorTeamInterfaceBtn); //两个像素点加一个点击按钮坐标 组成 一次 模拟人工点击
 }
 
 //组队御魂 循环开始战斗
