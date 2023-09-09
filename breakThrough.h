@@ -6,13 +6,18 @@ void closeBreakThroughInterface()
     int btn2[5] = { 1092, 168, 113, 50, 62 };
     int btn[5] = { 1079, 139, 8 };
     getBtn(btn1, btn2, btn);
+
+    int btn21[5] = { 562, 114, 248, 243, 224 };
+    int btn22[5] = { 1090, 151, 232, 212, 207 };
+    int btn23[5] = { 1079, 139, 8 };
+    getBtn(btn21, btn22, btn23);
     cout << "closeBreakThroughInterface: " << getBtn(btn1, btn2, btn) << endl;
 }
 
 void openBreakThroughInterface()
 {
-    int btn1[5] = {262, 607, 227, 213, 199};
-    int btn2[5] = {306, 643, 143, 117, 95};
+    int btn1[5] = {240, 608, 231, 218, 205 };
+    int btn2[5] = { 278, 640, 234, 221, 205 };
     int btn[5] = {262, 607, 15};
     if (!getBtn(btn1, btn2, btn)) {
         int btn11[5] = { 262, 607, 230, 215, 200 };
@@ -29,29 +34,19 @@ void openBreakThroughInterface()
 
 void openCommonBreakThroughInterface()
 {
-    int btn1[5] = {1095, 366, 100, 64, 42};
-    int btn2[5] = {1130, 410, 86, 54, 35};
-    int btn[5] = {1095, 366, 20};
+    int btn1[5] = { 1090, 151, 232, 212, 207 };
+    int btn2[5] = { 1096, 363, 94, 60, 38 };
+    int btn[5] = { 1095, 366, 20 };
     if (getBtn(btn1, btn2, btn)) {
         Sleep(2000);
-        // 147, 152, 67, 56, 50
-        // 503, 114, 91, 67, 49
-        // 599, 205, 109, 102, 94
-        /*int btn11[5] = { 623, 183, 207, 191, 172 };
-        int btn21[5] = { 155, 493, 71, 63, 55 };
-        int btn31[5] = { 155, 493, 10 };
-        if (getBtn(btn11, btn21, btn31)) {
-            startBreakThroughTimes = 101;
-            gameRunTimes = 7;
-        }*/
     }
 }
 
 void startBreakThrough()
 {
     cout << "startBreakThrough" << endl;
-    int btn1[5] = {510, 108, 91, 68, 50};
-    int btn2[5] = {668, 115, 89, 55, 22};
+    int btn1[5] = { 1090, 151, 232, 212, 207  };
+    int btn2[5] = { 96, 616, 198, 165, 120 };
     int btn[5] = {487, 171, 20};
     if (getBtn(btn1, btn2, btn))
     {
@@ -68,12 +63,40 @@ void startBreakThrough2()
     getBtn(btn1, btn2, btn);
 }
 
+
+void memberStartBreakThrough()
+{
+    cout << "startBreakThrough" << endl;
+    int btn1[5] = { 789, 529, 217, 203, 187 };
+    int btn2[5] = { 943, 557, 218, 204, 188 };
+    int btn[5] = { 789, 529, 20 };
+    if (getBtn(btn1, btn2, btn))
+    {
+        startBreakThroughTimes++;
+        gameRunTimes++;
+    }
+}
+
+void memberStartBreakThrough2()
+{
+    int btn1[5] = { 857, 413, 243, 178, 94 };
+    int btn2[5] = { 945, 438, 243, 178, 94 };
+    int btn[5] = { 857, 413, 20 };
+    getBtn(btn1, btn2, btn);
+}
+
+
 void endBreakThrough()
 {
     int sucBtn1[5] = {175, 630, 247, 231, 55};
     int sucBtn2[5] = {314, 631, 247, 231, 49};
     int sucBtn[3] = {24, 155, 50};
     getBtn(sucBtn1, sucBtn2, sucBtn);
+
+    int sucBtn11[5] = { 314, 632, 247, 229, 39 };
+    int sucBtn12[5] = { 177, 632, 247, 229, 37 };
+    int sucBtn111[3] = { 24, 155, 50 };
+    getBtn(sucBtn11, sucBtn12, sucBtn111);
 
     int failBtn1[5] = {367, 465, 246, 246, 243};
     int failBtn2[5] = {785, 494, 248, 212, 188};
@@ -89,6 +112,12 @@ void endBreakThrough()
     int failBtnr2[5] = { 467, 205, 99, 90, 111 };
     int failBtnr[3] = { 24, 155, 50 };
     getBtn(failBtnr1, failBtnr2, failBtnr);
+
+    int failBtnr61[5] = { 583, 537, 255, 255, 255 };
+    int failBtnr62[5] = { 347, 470, 246, 246, 243 };
+    int failBtnr63[3] = { 24, 155, 50 };
+    getBtn(failBtnr61, failBtnr62, failBtnr63);
+
     Sleep(3000);
 }
 
@@ -141,6 +170,13 @@ void closeErrorBreak()
     int btn2[5] = {377, 209, 74, 69, 65};
     int btn[5] = {375, 167, 20};
     if (getBtn(btn1, btn2, btn)) {
+        Sleep(1000);
+    }
+
+    int hdbtn1[5] = { 767, 414, 95, 185, 106 };
+    int hdbtn2[5] = { 780, 510, 217, 106, 87 };
+    int hdbtn[5] = { 760, 496, 15 };
+    if (getBtn(hdbtn1, hdbtn2, hdbtn)) {
         Sleep(1000);
     }
 

@@ -34,17 +34,26 @@ void startYuHun() {
 		gameRunTimes++;
 		Sleep(10000);
 	}
+	else {
+		/* 队长的挑战按钮 */
+		int startYuhunBtn11[5] = { 1856, 441, 240, 220, 144 };
+		int startYuhunBtn21[5] = { 1880, 470, 229, 195, 98 };
+		if (getBtn(startYuhunBtn11, startYuhunBtn21, startYuhunBtn)) {
+			gameRunTimes++;
+			Sleep(10000);
+		}
+	}
 }
 
 /* 队长的结算界面识别 */
-int teamEndBtn1[5] = { 1266, 468, 247, 230, 47 };
-int teamEndBtn2[5] = { 1354, 469, 247, 229, 39 };
+int teamEndBtn1[5] = { 1267, 469, 247, 228, 33 };
+int teamEndBtn2[5] = { 1355, 469, 247, 228, 34 };
 int teamEndBtn[3] = { 1176, 173, 30 };
 
 /* 队员的结算界面识别 */
-int memberEndBtn1[5] = { 177, 632, 247, 229, 40 };
-int memberEndBtn2[5] = { 314, 632, 247, 229, 39 };
-int memberEndBtn[3] = { 51, 203, 30 };
+int memberEndBtn1[5] = { 175, 631, 247, 230, 44 };
+int memberEndBtn2[5] = { 313, 635, 240, 209, 14 };
+int memberEndBtn[3] = { 28, 192, 30 };
 
 void teamInviteMember() {
 	int teamInviteBtn1[5] = { 1476, 283, 113, 94, 76 };
@@ -57,11 +66,26 @@ void teamInviteMember() {
 	}
 }
 
+void closeErrorInterface() {
+	int errorInterfaceBtn1[5] = { 1467, 162, 179, 146, 118 };
+	int errorInterfaceBtn2[5] = { 1466, 177, 254, 183, 50 };
+	int errorInterfaceBtn[3] = { 1600, 149, 12 };
+	getBtn(errorInterfaceBtn1, errorInterfaceBtn2, errorInterfaceBtn);
+
+	int errorTeamInterfaceBtn1[5] = { 705, 139, 232, 212, 207 };
+	int errorTeamInterfaceBtn2[5] = { 720, 152, 232, 212, 207 };
+	int errorTeamInterfaceBtn[3] = { 699, 135, 12 };
+	getBtn(errorTeamInterfaceBtn1, errorTeamInterfaceBtn2, errorTeamInterfaceBtn);
+}
+
 //组队御魂 循环开始战斗
 void LoopStartDoubleGame() {
 	while (gameRunTimes <= 450)
 	{
 		Sleep(random(500) + 1500); //等待1s 加载场景
+
+		closeErrorInterface();
+
 		startYuHun();
 		Sleep(random(500) + 1500); //等待1s 加载场景
 		acceptInvite();
@@ -71,42 +95,8 @@ void LoopStartDoubleGame() {
 		//队长点击福蛋
 		endPve(teamEndBtn1, teamEndBtn2, teamEndBtn);
 		//队长默认邀请
-		teamInviteMember();
+		//teamInviteMember();
 	}
-}
-
-/* 荒川9 */
-/* 点击开始按钮 进入战斗 */
-void startHC9()
-{
-	cout << "荒川" << endl;
-	//开始战斗
-	if (getColor(HC9L, HC9R) || getColor(HC9L2, HC9R2)) {
-		randomClick(HC9Btn1[0], HC9Btn1[1], HC9Btn1[2]);
-		gameRunTimes++;
-		Sleep(1000);
-	}
-}
-
-//点击准备
-void readyHC9()
-{
-	//开始战斗
-	if (getColor(readyHC9L, readyHC9R)) {
-		randomClick(readyHC9Btn1[0], readyHC9Btn1[1], readyHC9Btn1[2]);
-		Sleep(1000);
-	}
-}
-
-void LoopStartHC9() {
-	do
-	{
-		startHC9(); //执行开始战斗的逻辑
-		Sleep(2000); //等待1s
-		readyHC9(); //点击准备
-		Sleep(1000); //等待1s
-		endTeam(); //执行结束战斗的逻辑
-	} while (gameRunTimes <= 60);
 }
 
 void LoopStartGame() {

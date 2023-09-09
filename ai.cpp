@@ -80,9 +80,6 @@ void Menu() {
     case 12: //
         LoopThrowBeans();
         break;
-    case 13: //9
-        LoopStartHC9();
-        break;
     case 14: //
         LoopStartCGW();
         break;

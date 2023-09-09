@@ -5,33 +5,6 @@
 #include <windows.h>
 #pragma comment (lib, "user32.lib")
 
-void endPve(int btn1[5], int btn2[5], int btn[3]) {
-    if (getColor(btn1, btn2)) {
-        Sleep(random(500) + 500);
-        clickRandom(btn);
-    }
-}
-
-
-void synthesisCard() {
-    int times = 0;
-    while (times <= 500){
-        Sleep(1000);
-
-        if (getColor(synthesisTop, synthesisRight)) {
-            Sleep(500);
-            randomClick(690, 542, 50);
-            Sleep(500);
-            randomClick(920, 554, 40);
-        }
-        int btn1[5] = { 645, 597, 243, 178, 94 };
-        int btn2[5] = { 767, 624, 243, 178, 94 };
-        int btn[3] = { 645, 597, 10 };
-        getBtn(btn1, btn2, btn);
-    }
-}
-
-
 
 //百鬼夜行
 //选择鬼王
@@ -91,7 +64,7 @@ void intoThrowBeansInterface() {
         gameRunTimes++;
         cout << "进入百鬼夜行" << endl;
         Sleep(2000);
-        
+
     }
 }
 void startThrowBeansGame() {
@@ -120,6 +93,33 @@ void LoopThrowBeans() {
         intoThrowBeansInterface();
         startThrowBeansGame();
         outThrowBeansInterface();
+    }
+}
+
+
+void endPve(int btn1[5], int btn2[5], int btn[3]) {
+    if (getColor(btn1, btn2)) {
+        Sleep(random(500) + 500);
+        clickRandom(btn);
+    }
+}
+
+
+void synthesisCard() {
+    int times = 0;
+    while (times <= 500){
+        Sleep(1000);
+
+        if (getColor(synthesisTop, synthesisRight)) {
+            Sleep(500);
+            randomClick(690, 542, 50);
+            Sleep(500);
+            randomClick(920, 554, 40);
+        }
+        int btn1[5] = { 645, 597, 243, 178, 94 };
+        int btn2[5] = { 767, 624, 243, 178, 94 };
+        int btn[3] = { 645, 597, 10 };
+        getBtn(btn1, btn2, btn);
     }
 }
 
