@@ -35,6 +35,7 @@ void showMenu() {
     cout << "7 合卡 抽白票" << endl;
     cout << "8  组队御魂 作为队员" << endl;
     cout << "9 队长寮突" << endl;
+    cout << "11 队长999活动刷本" << endl;
     cout << "91  队长 + 队员寮突" << endl;
     cout << "14  超鬼王" << endl;
 }

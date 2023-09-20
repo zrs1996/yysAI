@@ -142,11 +142,22 @@ bool endMember(){
 
 bool endTeam() {
     std::cout << "识别队长是否可以结束战斗" << std::endl;
-    int btn1[5] = { 1267, 469, 247, 229, 37 };
-    int btn2[5] = { 1355, 468, 247, 231, 49};
-    int btn[3] = { 1170, 152, 50 };
+    int btn1[5] = { 178, 632, 247, 229, 38 };
+    int btn2[5] = { 314, 631, 247, 230, 44 };
+    int btn[3] = { 36, 242, 50 };
     int failBtn1[5] = { 1389, 362, 248, 247, 244 };
     int failBtn2[5] = { 1541, 364, 191, 48, 47 };
     int failBtn[3] = { 1170, 152, 50  };
     return getBtn(btn1, btn2, btn) || getBtn(failBtn1, failBtn2, failBtn);
+}
+
+bool endGetAward() {
+    std::cout << "识别获得奖励弹窗" << std::endl;
+    int btn1[5] = { 477, 211, 220, 200, 134 };
+    int btn2[5] = { 720, 214, 217, 197, 128 };
+    int btn3[3] = { 36, 242, 50 };
+
+    int btn11[5] = { 391, 246, 58, 43, 30 };
+    int btn21[5] = { 765, 261, 64, 47, 32 };
+    return getBtn(btn1, btn2, btn3) || getBtn(btn11, btn21, btn3);
 }

@@ -148,17 +148,20 @@ void loopQiFu() {
     }
 }
 
+/* µ¥Ë¢»î¶¯ */
 void LoopPve() {
-    while (gameRunTimes < 100)
+    while (gameRunTimes < 999)
     {
         Sleep(1000);
-        int btn1[5] = { 1783, 394, 2, 4, 5 };
-        int btn2[5] = { 1817, 420, 29, 9, 10 };
-        int btn[3] = { 1795, 406, 10 };
+        int btn1[5] = { 931, 623, 237, 237, 231 };
+        int btn2[5] = { 955, 646, 239, 95, 50 };
+        int btn[3] = { 1017, 552, 30 };
         if (getBtn(btn1, btn2, btn)) {
-            Sleep(15000);
+            Sleep(13000);
             gameRunTimes++;
         }
-        endMember();
+        endTeam();
+        endGetAward();
+        closeErrorInterface();
     }
 }
