@@ -141,6 +141,13 @@ bool endMember(){
 }
 
 bool endTeam() {
+    int btn21[5] = { 177, 633, 247, 227, 31 };
+    int btn22[5] = { 313, 632, 247, 229, 39 };
+    int btn23[3] = { 25, 184, 50 };
+    if (getBtn(btn21, btn22, btn23)) {
+        return true;
+    }
+
     std::cout << "识别队长是否可以结束战斗" << std::endl;
     int btn1[5] = { 178, 632, 247, 229, 38 };
     int btn2[5] = { 314, 631, 247, 230, 44 };

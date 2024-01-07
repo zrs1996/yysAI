@@ -90,22 +90,36 @@ void LoopStartDoubleGame() {
 void LoopStartGame() {
 	while (gameRunTimes <= 500)
 	{
-		int btn1[5] = { 1808, 438, 217, 206, 184 };
-		int btn2[5] = { 1838, 463, 222, 211, 188 };
-		int btn[3] = { 1803, 438, 10 };
+
+		closeErrorInterface();
+
+		int btn1[5] = { 999, 564, 85, 56, 40 };
+		int btn2[5] = { 1078, 638, 56, 32, 21 };
+		int btn[3] = { 1000, 565, 15 };
 		if (getBtn(btn1, btn2, btn)) {
-			Sleep(random(3000) + 55000);
+			Sleep(random(2000) + 7000);
 		}
 
+		endTeam();
+		Sleep(random(500) + 500);
+	}
+}
 
-		int singleYuhunBtn1[5] = { 1802, 443, 226, 216, 193 };
-		int singleYuhunBtn2[5] = { 1846, 454, 227, 215, 194 };
-		int singleYuhunBtn[3] = { 1811, 437, 10 };
-		if (getBtn(singleYuhunBtn1, singleYuhunBtn2, singleYuhunBtn)) {
-			Sleep(random(3000) + 5000);
+
+// ÒµÔ­»ð
+void LoopStartYeYuanHuo() {
+	while (gameRunTimes <= 500)
+	{
+
+		closeErrorInterface();
+
+		int btn1[5] = { 1009, 594, 222, 212, 189 };
+		int btn2[5] = { 1082, 611, 227, 216, 194 };
+		int btn[3] = { 1000, 565, 15 };
+		if (getBtn(btn1, btn2, btn)) {
+			Sleep(random(2000) + 23000);
 		}
-
-		endMember();
-		Sleep(random(1000) + 1000);
+		endTeam();
+		Sleep(random(500) + 500);
 	}
 }

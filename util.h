@@ -61,7 +61,8 @@ bool getScreenColor(int x, int y, int r, int g, int b)
         int red = GetRValue(pixel);
         int green = GetGValue(pixel);
         int blue = GetBValue(pixel);
-        //cout << "获取指定位置屏幕颜色" << red << "--" << green << "--" << blue << endl;
+        cout << "                       指定的屏幕颜色" << r << "--" << g << "--" << b << endl;
+        cout << "                       坐标点屏幕颜色" << red << "--" << green << "--" << blue << endl;
         if (red == r && green == g && blue == b) {
             return 1;
         }
@@ -110,7 +111,7 @@ bool getColor(int topPoint[5], int bottomPoint[5]) {
     int bottom_g = bottomPoint[3];
     int bottom_b = bottomPoint[4];
     bool bottom = getScreenColor(bottom_x, bottom_y, bottom_r, bottom_g, bottom_b);
-    cout << "getColor----" << top_x << "--"<< top_y << "--" << bottom_x << "--" << bottom_y << "===" << top << "++" << bottom << endl;
+    cout << "                      getColor----" << top_x << "--"<< top_y << "--" << bottom_x << "--" << bottom_y << "===" << top << "++" << bottom << endl;
     if (top && bottom) {
         return 1;
     }

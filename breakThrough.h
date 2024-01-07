@@ -548,13 +548,13 @@ void noTimes_member()
 
 bool getIs60Level()
 {
-    cout << "识别是否 有60级的结界" << endl;
-    int btn1[5] = { 1256, 188, 219, 213, 195 };
-    int btn2[5] = { 1265, 191, 228, 222, 204 };
+    cout << "识别是否需要连退" << endl;
+    int btn1[5] = { 168, 195, 206, 200, 183 };
+    int btn2[5] = { 170, 204, 245, 240, 221 };
     if (getColor(btn1, btn2))
     {
         quitBreakTag = true;
-        cout << "有60级的结界 开始进入 连退9次环节" << endl;
+        cout << "开始进入 连退9次环节" << endl;
         return true;
     }
     return false;
