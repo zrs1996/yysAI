@@ -123,21 +123,3 @@ void LoopStartYeYuanHuo() {
 		Sleep(random(500) + 500);
 	}
 }
-
-// ∆ı¡ÈÃΩ≤È
-void LoopStartTancha() {
-	while (gameRunTimes <= 500)
-	{
-
-		closeErrorInterface();
-
-		int btn1[5] = { 1072, 557, 226, 214, 192 };
-		int btn2[5] = { 1073, 626, 229, 218, 196 };
-		int btn[3] = { 1042, 564, 15 };
-		if (getBtn(btn1, btn2, btn)) {
-			Sleep(random(2000) + 23000);
-		}
-		endTeam();
-		Sleep(random(500) + 500);
-	}
-}

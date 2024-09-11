@@ -39,10 +39,7 @@ void showMenu() {
     cout << "11 队长999活动刷本" << endl;
     cout << "12 业原火" << endl;
     cout << "91  队长 + 队员寮突" << endl;
-    cout << "13  队长 + 契灵探查" << endl;
     cout << "14  超鬼王" << endl;
-    cout << "15  源赖光经验" << endl;
-    cout << "16  源赖光技能" << endl;
 }
 
 void Menu() {
@@ -86,16 +83,8 @@ void Menu() {
     case 12: //业原火
         LoopStartYeYuanHuo();
         break;
-    case 13: //契灵探查
-        LoopStartTancha();
     case 14: //
         LoopStartCGW();
-        break;
-    case 15: //活动
-        LoopYuanLaiGuang();
-        break;
-    case 16: //活动
-        LoopYuanLaiGuangSkill();
         break;
     case 99: //
         test();
