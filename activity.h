@@ -165,3 +165,67 @@ void LoopPve() {
         closeErrorInterface();
     }
 }
+
+void LoopYuanLaiGuang() {
+    while (gameRunTimes < 999)
+    {
+        Sleep(1000);
+        int btn1[5] = { 1026,553,80,52,36};
+        int btn2[5] = { 1105,632,55,32,21 };
+        int btn[3] = { 1026,553,70 };
+        if (getBtn(btn1, btn2, btn)) {
+            Sleep(18000 + random(5000));
+            gameRunTimes++;
+        }
+        int btn21[5] = { 176,633,247,227,31 };
+        int btn22[5] = { 163,623,144,179,221 };
+        int btn23[3] = { 25, 184, 90 };
+        getBtn(btn21, btn22, btn23);
+        closeErrorInterface();
+    }
+}
+
+void LoopYuanLaiGuangSkill() {
+    while (gameRunTimes < 50)
+    {
+        Sleep(1000);
+        int btn1[5] = { 1025,557,82,54,39 };
+        int btn2[5] = { 1112,623,56,33,22 };
+        int btn[3] = { 1025,557,70 };
+        if (getBtn(btn1, btn2, btn)) {
+            Sleep(90000 + random(20000));
+            gameRunTimes++;
+            // Ñ¡Ôñ×£¸£
+
+        }
+
+
+        int btn21[5] = { 176,633,247,227,31 };
+        int btn22[5] = { 163,623,144,179,221 };
+        int btn23[3] = { 25, 184, 90 };
+        if (getBtn(btn21, btn22, btn23)) {
+            Sleep(3000);
+            //clickRandom(btn);
+        }
+
+        int confirmWish1[5] = { 532,605,254,226,147 };
+        int confirmWish12[5] = { 532,606,255,227,152 };
+        int confirmWish13[3] = { 532,605, 20 };
+        if (getBtn(confirmWish1, confirmWish12, confirmWish13)) {
+            int wishSelectBtn[3] = { 90,479,80 };
+            clickRandom(wishSelectBtn);
+        }
+
+        int failBtn1[5] = { 367,464,247,247,244 };
+        int failBtn2[5] = { 609,465,206,62,60 };
+        int failBtn[3] = { 38,125,100 };
+        getBtn(failBtn1, failBtn2, failBtn);
+
+        closeErrorInterface();
+    }
+}
+
+
+void LoopActivity() {
+    LoopYuanLaiGuang();
+}
