@@ -116,7 +116,11 @@ void LoopStartYeYuanHuo() {
 		int btn1[5] = { 1009, 594, 222, 212, 189 };
 		int btn2[5] = { 1082, 611, 227, 216, 194 };
 		int btn[3] = { 1000, 565, 15 };
-		if (getBtn(btn1, btn2, btn)) {
+
+		int btn11[5] = { 1011, 602, 231, 221, 198 };
+		int btn21[5] = { 1077, 615, 228, 218, 196 };
+
+		if (getBtn(btn1, btn2, btn) || getBtn(btn1, btn2, btn)) {
 			Sleep(random(2000) + 23000);
 		}
 		endTeam();
