@@ -113,6 +113,7 @@ void Menu() {
 
 int main()
 {
+    setLeaderWindow();
     while (true)
     {
         showMenu();
