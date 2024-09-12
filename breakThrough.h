@@ -190,6 +190,17 @@ void closeErrorBreak()
     }
 }
 
+// 判断寮突是否已经打完了
+bool liaoTuIsEnd() {
+    cout << "判断寮突是否已经打完了" << endl;
+    int btn1[5] = { 139,226,72,63,57 };
+    int btn2[5] = { 151,202,71,63,57 };
+    if (getColor(btn1, btn2)) {
+        return true;
+    }
+    return false;
+}
+
 void teamBreakThrough(int time)
 {
     gameRunTimes = 0;
@@ -213,10 +224,15 @@ void teamBreakThrough(int time)
         Sleep(random(500) + 500);
         openCommonBreakThroughInterface();
         cout << "openCommonBreakThroughInterface----" << endl;
-        Sleep(random(500) + 1000);
+        Sleep(random(500) + 500);
         getBtn(closeConnectBtn1, closeConnectBtn2, closeConnectBtn);
         cout << "closeConnectBtn1----" << endl;
         Sleep(random(500) + 500);
+        if (liaoTuIsEnd()) {
+            gameRunTimes = 7;
+            startBreakThroughTimes = 1000;
+            return;
+        }
         startBreakThrough();
         cout << "startBreakThrough----" << endl;
         Sleep(random(500) + 500);
@@ -264,7 +280,7 @@ void memberBreakThrough(int time)
 
 void LoopStartBreakThrough(int time, bool multiple)
 {
-    while (startBreakThroughTimes < 1999900)
+    while (startBreakThroughTimes < 999)
     {
         if (time == 0) {
             teamBreakThrough(0);
