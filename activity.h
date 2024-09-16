@@ -150,18 +150,27 @@ void loopQiFu() {
 
 /* 单刷活动 */
 void LoopPve() {
-    while (gameRunTimes < 999)
+    while (gameRunTimes < 800)
     {
-        Sleep(1000);
-        int btn1[5] = { 931, 623, 237, 237, 231 };
-        int btn2[5] = { 955, 646, 239, 95, 50 };
-        int btn[3] = { 1017, 552, 30 };
+        Sleep(500 + random(500));
+        int btn1[5] = { 1026,558,94,131,124 };
+        int btn2[5] = { 1105,632,51,76,71 };
+        int btn[3] = { 1026,558,65 };
+        int wishSelectBtn[3] = { 36, 173, 150 };
         if (getBtn(btn1, btn2, btn)) {
-            Sleep(13000);
+            cout << "结算奖励界面" << endl;
             gameRunTimes++;
+            Sleep(17000 + random(5000));
+            Sleep(500 + random(500));
+            clickRandom(wishSelectBtn);
+            Sleep(500 + random(500));
+            clickRandom(wishSelectBtn);
         }
-        endTeam();
-        endGetAward();
+        else {
+            Sleep(500 + random(500));
+            clickRandom(wishSelectBtn);
+        }
+        Sleep(2000 + random(500));
         closeErrorInterface();
     }
 }
@@ -169,7 +178,7 @@ void LoopPve() {
 void LoopYuanLaiGuang() {
     while (gameRunTimes < 999)
     {
-        Sleep(1000);
+        Sleep(500 + random(500));
         int btn1[5] = { 1026,553,80,52,36};
         int btn2[5] = { 1105,632,55,32,21 };
         int btn[3] = { 1026,553,70 };
@@ -195,7 +204,7 @@ void LoopYuanLaiGuangSkill() {
         if (getBtn(btn1, btn2, btn)) {
             Sleep(90000 + random(20000));
             gameRunTimes++;
-            // 选择祝福
+           
 
         }
 
@@ -205,9 +214,17 @@ void LoopYuanLaiGuangSkill() {
         int btn23[3] = { 25, 184, 90 };
         if (getBtn(btn21, btn22, btn23)) {
             Sleep(3000);
-            //clickRandom(btn);
+        }
+        else {
+            int btn21[5] = { 748,163,246,240,210 };
+            int btn22[5] = { 839,143,246,241,211 };
+            int btn23[3] = { 25, 184, 90 };
+            if (getBtn(btn21, btn22, btn23)) {
+                Sleep(3000);
+            }
         }
 
+        // 选择祝福
         int confirmWish1[5] = { 532,605,254,226,147 };
         int confirmWish12[5] = { 532,606,255,227,152 };
         int confirmWish13[3] = { 532,605, 20 };
