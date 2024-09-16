@@ -204,7 +204,7 @@ void LoopYuanLaiGuangSkill() {
         if (getBtn(btn1, btn2, btn)) {
             Sleep(90000 + random(20000));
             gameRunTimes++;
-            // Ñ¡Ôñ×£¸£
+           
 
         }
 
@@ -214,9 +214,17 @@ void LoopYuanLaiGuangSkill() {
         int btn23[3] = { 25, 184, 90 };
         if (getBtn(btn21, btn22, btn23)) {
             Sleep(3000);
-            //clickRandom(btn);
+        }
+        else {
+            int btn21[5] = { 748,163,246,240,210 };
+            int btn22[5] = { 839,143,246,241,211 };
+            int btn23[3] = { 25, 184, 90 };
+            if (getBtn(btn21, btn22, btn23)) {
+                Sleep(3000);
+            }
         }
 
+        // Ñ¡Ôñ×£¸£
         int confirmWish1[5] = { 532,605,254,226,147 };
         int confirmWish12[5] = { 532,606,255,227,152 };
         int confirmWish13[3] = { 532,605, 20 };
