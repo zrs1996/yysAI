@@ -213,14 +213,22 @@ void LoopYuanLaiGuangSkill() {
         int btn22[5] = { 163,623,144,179,221 };
         int btn23[3] = { 25, 184, 90 };
         if (getBtn(btn21, btn22, btn23)) {
-            Sleep(3000);
+            Sleep(2000 + random(500));
         }
         else {
             int btn21[5] = { 748,163,246,240,210 };
             int btn22[5] = { 839,143,246,241,211 };
             int btn23[3] = { 25, 184, 90 };
             if (getBtn(btn21, btn22, btn23)) {
-                Sleep(3000);
+                Sleep(2000 + random(500));
+            }
+            else {
+                int btn21[5] = { 517,381,250,250,250 };
+                int btn22[5] = { 646,380,255,255,255 };
+                int btn23[3] = { 25, 184, 90 };
+                if (getBtn(btn21, btn22, btn23)) {
+                    Sleep(2000 + random(500));
+                }
             }
         }
 
@@ -228,9 +236,12 @@ void LoopYuanLaiGuangSkill() {
         int confirmWish1[5] = { 532,605,254,226,147 };
         int confirmWish12[5] = { 532,606,255,227,152 };
         int confirmWish13[3] = { 532,605, 20 };
-        if (getBtn(confirmWish1, confirmWish12, confirmWish13)) {
-            int wishSelectBtn[3] = { 90,479,80 };
+        if (getColor(confirmWish1, confirmWish12)) {
+            Sleep(500 + random(200));
+            int wishSelectBtn[3] = { 100,479,70 };
             clickRandom(wishSelectBtn);
+            Sleep(500 + random(200));
+            clickRandom(confirmWish13);
         }
 
         int failBtn1[5] = { 367,464,247,247,244 };
