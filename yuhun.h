@@ -117,10 +117,10 @@ void LoopStartYeYuanHuo() {
 		int btn2[5] = { 1082, 611, 227, 216, 194 };
 		int btn[3] = { 1000, 565, 15 };
 		if (getBtn(btn1, btn2, btn)) {
-			Sleep(random(2000) + 23000);
+			Sleep(random(2000) + 35000);
 		}
 		endTeam();
-		Sleep(random(500) + 500);
+		Sleep(random(500) + 2000);
 	}
 }
 

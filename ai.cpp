@@ -32,7 +32,6 @@ void showMenu() {
     cout << "2  组队御魂" << endl;
     cout << "3 队长--个人突破" << endl;
     cout << "4 队员--个人突破" << endl;
-    cout << "6 活动 - 祈福之行" << endl;
     cout << "7 合卡 抽白票" << endl;
     cout << "8  组队御魂 作为队员" << endl;
     cout << "9 队长寮突" << endl;
