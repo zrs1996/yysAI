@@ -118,8 +118,8 @@ void LoopStartYeYuanHuo() {
 		int isYeYuanHuoBtn[3] = { 69,310, 25 };
 		if (!getColor(isYeYuanHuoX, isYeYuanHuoY)) {
 			clickRandom(isYeYuanHuoBtn);
+			Sleep(random(500) + 1000);
 		}
-		Sleep(random(500) + 1000);
 
 		int btn1[5] = { 1009, 594, 222, 212, 189 };
 		int btn2[5] = { 1082, 611, 227, 216, 194 };
